@@ -1,0 +1,5 @@
+FROM python:latest
+WORKDIR /medtrack
+COPY . /medtrack
+RUN pip install -r requirements.txt
+CMD ["uvicorn", "main:app", "--reload"]

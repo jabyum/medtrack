@@ -27,11 +27,10 @@ async def add_patient(request: Request):
     age = data.get("age")
     symptoms = data.get("symptoms")
     other = data.get("other")
-    phone_number = data.get("phone_number")
     photo = data.get("photo")
     messageid = data.get("messageid")
-    if user_id and gender and age and symptoms and other and phone_number and messageid:
-        add_patient_db(user_id, gender, age, symptoms, other, phone_number, photo, messageid)
+    if user_id and gender and age and symptoms and other and messageid:
+        add_patient_db(user_id, gender, age, symptoms, other, photo, messageid)
         return {"status": 1, "message": "Сохранено"}
     return {"status": 0, "message": "ошибка"}
 @app.delete("/api/delete_patient")
@@ -39,6 +38,6 @@ async def delete_exact_patien(request: Request):
     data = await request.json()
     user_id = data.get("user_id")
     if user_id:
-        delete_exact_patient_db(user_id)
-        return {"status": 1, "message": "успешно удалено"}
+        delete_patient = delete_exact_patient_db(user_id)
+        return {"status": 1, "message": delete_patient}
     return {"status": 0, "message": "ошибка"}

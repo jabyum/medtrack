@@ -28,11 +28,10 @@ async def add_medic(request: Request):
     experience = data.get("experience")
     work_place_time = data.get("work_place_time")
     other = data.get("other")
-    phone_number = data.get("phone_number")
     photo = data.get("photo")
     messageid = data.get("messageid")
-    if user_id and name and speciality and experience and work_place_time and other and phone_number and photo and messageid:
-        add_medic_db(user_id, name, speciality, experience, work_place_time, other, phone_number, photo, messageid)
+    if user_id and name and speciality and experience and work_place_time and other and photo and messageid:
+        add_medic_db(user_id, name, speciality, experience, work_place_time, other, photo, messageid)
         return {"status": 1, "message": "Сохранено"}
     return {"status": 0, "message": "ошибка"}
 @app.delete("/api/delete_medic")
@@ -40,6 +39,6 @@ async def delete_exact_medic(request: Request):
     data = await request.json()
     user_id = data.get("user_id")
     if user_id:
-        delete_exact_medic_db(user_id)
-        return {"status": 1, "message": "успешно удалено"}
+        delete = delete_exact_medic_db(user_id)
+        return {"status": 1, "message": delete}
     return {"status": 0, "message": "ошибка"}

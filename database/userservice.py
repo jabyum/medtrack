@@ -17,3 +17,8 @@ def show_all_user_db():
     db = next(get_db())
     users = db.query(User).all()
     return {"status": 1, "message": users}
+def get_phone_number_db(user_id):
+    db = next(get_db())
+    filter_id = db.query(User).filter_by(tg_id=user_id).first()
+    phone_number = filter_id.phone_number
+    return {"status": 1, "message": phone_number}

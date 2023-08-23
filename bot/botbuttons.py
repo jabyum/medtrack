@@ -1,4 +1,4 @@
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 def main_menu_kb(check_medic):
     kb = InlineKeyboardMarkup(row_width=1)
     about = InlineKeyboardButton(text="О проекте", callback_data="about")
@@ -6,7 +6,7 @@ def main_menu_kb(check_medic):
     vac_base = InlineKeyboardButton(text="Посмотреть актуальные вакансии", callback_data="vac_base")
     registration = InlineKeyboardButton(text="Хочу быть в базе врачей", callback_data="med_registration")
     delete_registration = InlineKeyboardButton(text="Удалить свою анкету", callback_data="delete_registration")
-    question = InlineKeyboardButton(text="Скрининг", callback_data="screening")
+    question = InlineKeyboardButton(text="Индекс массы тела", web_app=WebAppInfo("https://www.msdmanuals.com/ru/%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9/multimedia/clinical-calculator/%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%BC%D0%B0%D1%81%D1%81%D1%8B-%D1%82%D0%B5%D0%BB%D0%B0-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%BA%D0%B5%D1%82%D0%BB%D0%B5"))
     kb.row(vacancy)
     if check_medic == False:
         kb.add(registration)

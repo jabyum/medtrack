@@ -298,5 +298,19 @@ def get_med_photo(message, name, speciality, experience, work_place_time, other)
     else:
         bot.send_message(user_id, "Отправьте фотографию")
         bot.register_next_step_handler(message, get_med_photo, name, speciality, experience, work_place_time, other)
+# def mailing(message):
+#     user_id = message.from_user.id
+#     text = message.text
+#     if text == "Отмена❌":
+#          bot.send_message(user_id, "Рассылка отменена", reply_markup=types.ReplyKeyboardRemove())
+#     else:
+#         for i in targets_id:
+#             try:
+#                 time.sleep(1)
+#                 bot.send_message(i, text)
+#             except:
+#                 continue
+#     bot.send_message(user_id, "Рассылка завершена", reply_markup=types.ReplyKeyboardRemove())
+#     admin_panel(message)
 bot.polling(none_stop=True)
 

@@ -1,1 +1,1 @@
-from main import app, templates
+from main import app

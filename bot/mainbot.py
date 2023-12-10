@@ -3,7 +3,7 @@ import botbuttons
 from telebot import types
 import time
 import requests
-bot = telebot.TeleBot("6657750055:AAFY4ZOE2oBQx_AJi4hcl-kUgGYatSiv-MY")
+bot = telebot.TeleBot("")
 url = "http://127.0.0.1:8000/"
 @bot.message_handler(commands=["start"])
 def start_message(message):
